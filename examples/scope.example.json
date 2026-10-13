@@ -1,0 +1,9 @@
+{
+  "description": "Instalação de câmera de segurança em agência bancária.",
+  "criteria": [
+    {"id": "object", "description": "Há uma câmera de segurança identificável na imagem.", "weight": 40, "essential": true},
+    {"id": "installation", "description": "A câmera aparece fixada em parede/teto/suporte, em posição de uso; não apenas solta ou em embalagem.", "weight": 25, "essential": true},
+    {"id": "environment", "description": "Há elementos visíveis compatíveis com agência bancária, como autoatendimento, balcões ou sinalização bancária; ambiente interno genérico não basta.", "weight": 20, "essential": false},
+    {"id": "brand", "description": "Há identificação visual legível da instituição, por logo/texto na cena; cor isolada não basta.", "weight": 15, "essential": true}
+  ]
+}

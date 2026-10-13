@@ -1,0 +1,171 @@
+{
+  "requests": [
+    {
+      "request_id": "CH-0001-ar-condicionado",
+      "scope": {
+        "description": "Instalação de ar-condicionado split na área de autoatendimento de agência do Itaú.",
+        "criteria": [
+          {
+            "id": "object",
+            "description": "Há um aparelho de ar-condicionado (unidade interna split) identificável na imagem; ventilador ou climatizador portátil não conta.",
+            "weight": 40,
+            "essential": true
+          },
+          {
+            "id": "installation",
+            "description": "O ar-condicionado aparece fixado na parede ou no teto, em posição de uso; não apenas no chão ou em embalagem.",
+            "weight": 25,
+            "essential": true
+          },
+          {
+            "id": "environment",
+            "description": "Há elementos visíveis compatíveis com agência bancária, como autoatendimento, balcões ou sinalização bancária; ambiente interno genérico não basta.",
+            "weight": 20,
+            "essential": false
+          },
+          {
+            "id": "brand",
+            "description": "Há identificação visual legível do Itaú, por logo/texto na cena; cor laranja isolada não basta.",
+            "weight": 15,
+            "essential": true
+          }
+        ]
+      },
+      "images": [
+        {
+          "file": "images/T07.png",
+          "expected_compliant": true
+        },
+        {
+          "file": "images/T08.png",
+          "expected_compliant": false
+        }
+      ]
+    },
+    {
+      "request_id": "CH-0002-extintor",
+      "scope": {
+        "description": "Reinstalação de extintor de incêndio na área de autoatendimento de agência do Itaú.",
+        "criteria": [
+          {
+            "id": "object",
+            "description": "Há um extintor de incêndio identificável na imagem.",
+            "weight": 40,
+            "essential": true
+          },
+          {
+            "id": "installation",
+            "description": "O extintor aparece fixado na parede ou em suporte próprio, com sinalização, em posição de uso; não solto no chão ou sobre móveis.",
+            "weight": 25,
+            "essential": true
+          },
+          {
+            "id": "environment",
+            "description": "Há elementos visíveis compatíveis com agência bancária, como autoatendimento, balcões ou sinalização bancária; ambiente interno genérico não basta.",
+            "weight": 20,
+            "essential": false
+          },
+          {
+            "id": "brand",
+            "description": "Há identificação visual legível do Itaú, por logo/texto na cena; cor laranja isolada não basta.",
+            "weight": 15,
+            "essential": true
+          }
+        ]
+      },
+      "images": [
+        {
+          "file": "images/T09.png",
+          "expected_compliant": true
+        },
+        {
+          "file": "images/T10.png",
+          "expected_compliant": false
+        }
+      ]
+    },
+    {
+      "request_id": "CH-0003-rampa-acessibilidade",
+      "scope": {
+        "description": "Construção de rampa de acessibilidade com corrimão na entrada de agência do Itaú.",
+        "criteria": [
+          {
+            "id": "object",
+            "description": "Há uma rampa de acessibilidade identificável na entrada; escada sozinha não conta.",
+            "weight": 40,
+            "essential": true
+          },
+          {
+            "id": "installation",
+            "description": "A rampa aparece concluída, com corrimão instalado e piso acabado, dando acesso à porta da agência.",
+            "weight": 25,
+            "essential": true
+          },
+          {
+            "id": "environment",
+            "description": "Há elementos visíveis compatíveis com agência bancária, como autoatendimento, balcões ou sinalização bancária; ambiente interno genérico não basta.",
+            "weight": 20,
+            "essential": false
+          },
+          {
+            "id": "brand",
+            "description": "Há identificação visual legível do Itaú, por logo/texto na cena; cor laranja isolada não basta.",
+            "weight": 15,
+            "essential": true
+          }
+        ]
+      },
+      "images": [
+        {
+          "file": "images/T11.png",
+          "expected_compliant": true
+        },
+        {
+          "file": "images/T12.png",
+          "expected_compliant": false
+        }
+      ]
+    },
+    {
+      "request_id": "CH-0004-luminarias",
+      "scope": {
+        "description": "Substituição de luminárias do forro na área de autoatendimento de agência do Itaú.",
+        "criteria": [
+          {
+            "id": "object",
+            "description": "Há luminárias de teto identificáveis na imagem.",
+            "weight": 40,
+            "essential": true
+          },
+          {
+            "id": "installation",
+            "description": "As luminárias aparecem instaladas no forro, alinhadas e sem vãos abertos; não soltas sobre móveis ou com o forro aberto.",
+            "weight": 25,
+            "essential": true
+          },
+          {
+            "id": "environment",
+            "description": "Há elementos visíveis compatíveis com agência bancária, como autoatendimento, balcões ou sinalização bancária; ambiente interno genérico não basta.",
+            "weight": 20,
+            "essential": false
+          },
+          {
+            "id": "brand",
+            "description": "Há identificação visual legível do Itaú, por logo/texto na cena; cor laranja isolada não basta.",
+            "weight": 15,
+            "essential": true
+          }
+        ]
+      },
+      "images": [
+        {
+          "file": "images/T13.png"
+        },
+        {
+          "file": "images/T14.png",
+          "expected_compliant": false
+        }
+      ]
+    }
+  ]
+}

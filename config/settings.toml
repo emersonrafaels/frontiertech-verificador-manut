@@ -1,0 +1,74 @@
+# Atest.AI — configurações (Dynaconf).
+# Ambiente ativo via ATEST_ENV (development | production); padrão: development.
+# Qualquer chave pode ser sobrescrita por variável de ambiente com prefixo ATEST_,
+# usando "__" para níveis aninhados. Ex.: ATEST_LLM__MODEL_ID=..., ATEST_EXECUTION__MANIFEST=...
+# Segredos ficam em config/.secrets.toml (fora do git).
+
+[default.execution]
+# Lote do MVP (D+1): manifesto JSON com os chamados, o escopo de cada um e suas fotos.
+# Caminhos relativos partem da raiz do projeto; as fotos, da pasta do manifesto.
+# A futura API receberá imagem e escopo na requisição, sem usar estas chaves.
+manifest = "data/input/manifest.json"
+# Um JSON por chamado + summary.json em <output_dir>/<run_id>/.
+output_dir = "data/output"
+
+[default.llm]
+provider = "bedrock_converse"
+# Perfil de inferência do Bedrock (multimodal + saída estruturada nativa).
+# Em sa-east-1 só há perfis "global." para o Claude: a inferência pode ser
+# roteada para outras regiões AWS (avaliar requisitos de residência de dados).
+model_id = "global.anthropic.claude-opus-5-5"
+region = "sa-east-1"
+# Inclui os tokens de raciocínio (thinking sempre ativo no Claude Opus 5.5).
+max_tokens = 16000
+# low | medium | high | xhigh | max; vazio = padrão do modelo.
+reasoning_effort = "medium"
+# Sem temperature: os modelos atuais rejeitam parâmetros de amostragem.
+connect_timeout = 10
+read_timeout = 300
+max_attempts = 3
+valid_stop_reasons = ["end_turn"]
+
+[default.prompt]
+# Nome do diretório em src/atest_ai/prompts/templates/
+version = "visual-langchain-0.3"
+
+[default.observability]
+# Não exportar imagens/prompts para tracing externo não homologado.
+tracing_enabled = false
+# Inclui a mensagem da exceção nos erros (pode conter detalhes técnicos da AWS).
+expose_error_details = false
+# Nível mínimo do loguru (stderr): TRACE | DEBUG | INFO | SUCCESS | WARNING | ERROR | CRITICAL
+log_level = "INFO"
+
+[default.network]
+# Usa o repositório de certificados do sistema operacional (ex.: antivírus
+# que inspeciona HTTPS, como o Avast, ou proxy corporativo com CA própria).
+use_system_trust_store = false
+
+[default.image]
+max_original_bytes = 20_000_000
+max_pixels = 30_000_000
+max_side = 1568
+jpeg_quality = 90
+max_prepared_bytes = 3_500_000
+accepted_formats = ["JPEG", "PNG", "WEBP"]
+
+[default.rubric]
+# Pesos, estados e faixas são hipóteses de piloto, não valores calibrados.
+version = "visual-0.1-experimental"
+compliance_threshold = 85
+
+[default.rubric.factors]
+met = 1.0
+partial = 0.5
+not_met = 0.0
+not_verifiable = 0.0
+
+[development.observability]
+expose_error_details = true
+
+[development.network]
+use_system_trust_store = true
+
+[production]

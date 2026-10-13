@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atest-ai"
+version = "0.1.0"
+description = "Atest.AI — aderência visual de uma imagem de manutenção ao escopo (LangChain + Bedrock)."
+requires-python = ">=3.11"
+dependencies = [
+    "langchain-aws==1.8.1",
+    "langchain-core==1.6.9",
+    "pydantic>=2,<3",
+    "Pillow==12.3.0",
+    "boto3==1.43.111",
+    "dynaconf>=3.2,<4",
+    "truststore>=0.10",
+    "loguru>=0.7,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+atest_ai = ["prompts/templates/**/*.md"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
